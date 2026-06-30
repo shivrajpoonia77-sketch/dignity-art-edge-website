@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — Dignity Art Edge</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/animations.css">
+  <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+
+  <div id="dae-navbar"></div>
+
+  <section class="auth-split">
+    <div class="auth-image">
+      <img src="https://picsum.photos/seed/auth-studio/900/1100" alt="An artisan's studio workbench">
+      <div class="auth-image-caption">
+        <span class="label-mono">Join Dignity Art Edge</span>
+        <h3>Start your own collection.</h3>
+      </div>
+    </div>
+
+    <div class="auth-form-side">
+      <div class="auth-form-card">
+        <div class="section-eyebrow mb-3">New Here</div>
+        <h2 class="mb-2">Create Account</h2>
+        <p class="text-muted mb-4">Already a member? <a href="login.html" class="text-rust">Log in</a></p>
+
+        <div id="register-alert" class="alert d-none"></div>
+
+        <form id="register-form" class="form-dae needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="reg-name">Full Name</label>
+            <input type="text" class="form-control" id="reg-name" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+          <div class="mb-3">
+            <label for="reg-email">Email Address</label>
+            <input type="email" class="form-control" id="reg-email" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="mb-3">
+            <label for="reg-phone">Phone Number</label>
+            <input type="tel" class="form-control" id="reg-phone" pattern="[0-9]{10}" required>
+            <div class="invalid-feedback">Enter a valid 10-digit phone number.</div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 mb-3">
+              <label for="reg-password">Password</label>
+              <input type="password" class="form-control" id="reg-password" required minlength="6">
+              <div class="invalid-feedback">At least 6 characters.</div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="reg-confirm">Confirm Password</label>
+              <input type="password" class="form-control" id="reg-confirm" required minlength="6">
+              <div class="invalid-feedback">Passwords must match.</div>
+            </div>
+          </div>
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="reg-terms" required>
+            <label class="form-check-label small" for="reg-terms">I agree to the Terms of Service and Privacy Policy</label>
+            <div class="invalid-feedback">You must agree before continuing.</div>
+          </div>
+          <button type="submit" class="btn btn-dae btn-dae-primary w-100 py-3">Create Account <i class="bi bi-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div id="dae-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.DAE_BASE = "../";
+    window.DAE_PAGE = "register";
+  </script>
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/product-card.js"></script>
+  <script src="../assets/js/cart.js"></script>
+  <script src="../assets/js/wishlist.js"></script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", daeInitRegisterForm);
+  </script>
+</body>
+</html>
