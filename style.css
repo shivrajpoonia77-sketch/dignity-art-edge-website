@@ -1,0 +1,400 @@
+/* ==========================================================================
+   DIGNITY ART EDGE — GLOBAL STYLESHEET
+   Base layer shared by every customer-facing page: typography, navbar,
+   footer, buttons, the signature catalog-placard component, toasts, and
+   small reusable utilities. Page-specific styles live in their own files
+   (home.css, shop.css, etc.) and are loaded in addition to this one.
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--wall);
+  color: var(--ink-soft);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display-font {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease); }
+a:hover { color: var(--rust); }
+
+::selection { background: var(--rust); color: var(--paper); }
+
+/* Visible keyboard focus everywhere — accessibility floor */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Small caps "eyebrow" / mono label, used for placards & section tags ---------- */
+.label-mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--verdigris);
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--rust);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-eyebrow::before {
+  content: "";
+  width: 28px; height: 1px;
+  background: var(--rust);
+}
+
+/* ==========================================================================
+   TOP UTILITY BAR + NAVBAR
+   ========================================================================== */
+.utility-bar {
+  background: var(--ink);
+  color: #cfc7b6;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0;
+}
+.utility-bar a { color: #cfc7b6; }
+.utility-bar a:hover { color: var(--brass); }
+
+.dae-navbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  transition: box-shadow var(--dur-med) var(--ease);
+}
+.dae-navbar.is-scrolled { box-shadow: var(--shadow-card); }
+
+.brand-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.brand-mark span { color: var(--rust); }
+.brand-mark small {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--verdigris);
+  text-transform: uppercase;
+  margin-left: 0.3rem;
+}
+
+.dae-navbar .nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.9rem !important;
+  position: relative;
+}
+.dae-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem; right: 0.9rem; bottom: 0.2rem;
+  height: 1px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-med) var(--ease);
+}
+.dae-navbar .nav-link:hover::after,
+.dae-navbar .nav-link.active::after { transform: scaleX(1); }
+.dae-navbar .nav-link.active { color: var(--rust); }
+
+.nav-icon-btn {
+  position: relative;
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: all var(--dur-fast) var(--ease);
+}
+.nav-icon-btn:hover { border-color: var(--rust); color: var(--rust); transform: translateY(-1px); }
+.nav-icon-btn .count-badge {
+  position: absolute; top: -6px; right: -6px;
+  background: var(--rust); color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  min-width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 3px;
+  border: 2px solid var(--paper);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn-dae {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: all var(--dur-fast) var(--ease);
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.btn-dae-primary { background: var(--ink); color: var(--paper); }
+.btn-dae-primary:hover { background: var(--rust); color: #fff; transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.btn-dae-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-dae-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-dae-rust { background: var(--rust); color: #fff; }
+.btn-dae-rust:hover { background: var(--rust-dark); color: #fff; transform: translateY(-2px); }
+.btn-dae-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-dae-ghost:hover { border-color: var(--rust); color: var(--rust); }
+.btn-dae:disabled, .btn-dae.disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+.btn-icon-circle {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: all var(--dur-fast) var(--ease);
+}
+.btn-icon-circle:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn-icon-circle.is-active { background: var(--rust); color: #fff; border-color: var(--rust); }
+
+/* ==========================================================================
+   CATALOG PLACARD — signature component
+   Used on every product card and the product detail page: a small museum
+   placard giving catalog number, medium and origin, like a gallery label.
+   ========================================================================== */
+.placard {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--verdigris);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.8rem;
+  border-top: 1px dashed var(--line);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+.placard span strong { color: var(--ink-soft); font-weight: 600; }
+
+/* ==========================================================================
+   PRODUCT CARD
+   ========================================================================== */
+.product-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med) var(--ease), border-color var(--dur-med) var(--ease);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--ink);
+}
+.product-card .frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--wall-deep);
+}
+.product-card .frame img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.product-card:hover .frame img { transform: scale(1.06); }
+.product-card .frame .frame-actions {
+  position: absolute; top: 0.6rem; right: 0.6rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  opacity: 0; transform: translateX(8px);
+  transition: all var(--dur-med) var(--ease);
+}
+.product-card:hover .frame .frame-actions { opacity: 1; transform: translateX(0); }
+.product-card .frame .stock-tag {
+  position: absolute; bottom: 0.6rem; left: 0.6rem;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--font-mono); font-size: 0.65rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem; border-radius: var(--radius-sm);
+}
+.product-card .frame .stock-tag.low { background: var(--warning); }
+.product-card .frame .stock-tag.out { background: var(--danger); }
+.product-card .body { padding: 1rem 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
+.product-card .cat-name { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--rust); font-family: var(--font-mono); }
+.product-card h3 { font-size: 1.05rem; margin: 0.2rem 0 0.3rem; }
+.product-card .price-row { display: flex; align-items: baseline; gap: 0.5rem; margin-top: auto; }
+.product-card .price { font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem; color: var(--ink); }
+.product-card .price-old { font-family: var(--font-mono); font-size: 0.85rem; color: #9b9382; text-decoration: line-through; }
+.product-card .rating { color: var(--brass); font-size: 0.78rem; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.dae-footer {
+  background: var(--ink);
+  color: #cfc7b6;
+  padding: var(--space-2xl) 0 var(--space-md);
+  margin-top: var(--space-2xl);
+}
+.dae-footer h5 {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: #fff;
+  margin-bottom: 1.1rem;
+}
+.dae-footer a { color: #cfc7b6; font-size: 0.92rem; }
+.dae-footer a:hover { color: var(--brass); }
+.dae-footer .foot-brand { font-family: var(--font-display); font-size: 1.4rem; color: #fff; }
+.dae-footer .foot-divider { border-color: var(--line-dark); margin: var(--space-lg) 0 var(--space-md); }
+.dae-footer .foot-bottom { font-family: var(--font-mono); font-size: 0.72rem; color: #8c8472; }
+.social-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--line-dark);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all var(--dur-fast) var(--ease);
+}
+.social-circle:hover { background: var(--rust); border-color: var(--rust); color: #fff; }
+.newsletter-form input {
+  background: transparent; border: none; border-bottom: 1px solid var(--line-dark);
+  color: #fff; padding: 0.6rem 0; font-family: var(--font-mono); font-size: 0.85rem;
+}
+.newsletter-form input:focus { outline: none; border-color: var(--brass); box-shadow: none; }
+.newsletter-form input::placeholder { color: #6e6757; }
+
+/* ==========================================================================
+   GENERIC PAGE HERO (used on shop, cart, checkout, about, contact, faq...)
+   ========================================================================== */
+.page-banner {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-xl) 0 var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+.page-banner::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 85% 20%, rgba(181,81,46,0.25), transparent 45%);
+  pointer-events: none;
+}
+.page-banner h1 { color: #fff; margin-bottom: 0.4rem; }
+.page-banner .breadcrumb-mono {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #b8b0a0;
+}
+.page-banner .breadcrumb-mono a:hover { color: var(--brass); }
+
+/* ==========================================================================
+   FORMS
+   ========================================================================== */
+.form-dae label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+.form-dae .form-control, .form-dae .form-select {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.9rem;
+  background: var(--paper);
+}
+.form-dae .form-control:focus, .form-dae .form-select:focus {
+  border-color: var(--rust);
+  box-shadow: 0 0 0 3px rgba(181, 81, 46, 0.12);
+}
+.form-dae .invalid-feedback { font-size: 0.78rem; }
+
+/* ==========================================================================
+   CARDS / SURFACES / MISC UTILITIES
+   ========================================================================== */
+.surface { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.divider-rust { width: 56px; height: 3px; background: var(--rust); border-radius: 2px; }
+.text-rust { color: var(--rust) !important; }
+.text-verdigris { color: var(--verdigris) !important; }
+.bg-wall-deep { background: var(--wall-deep) !important; }
+.empty-state { text-align: center; padding: var(--space-2xl) var(--space-md); }
+.empty-state i { font-size: 3.2rem; color: var(--line); }
+
+/* Toast container (vanilla JS toasts triggered from utils.js) */
+#dae-toast-zone {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 2000;
+  display: flex; flex-direction: column; gap: 0.6rem;
+}
+.dae-toast {
+  background: var(--ink); color: var(--paper);
+  font-family: var(--font-mono); font-size: 0.82rem;
+  padding: 0.85rem 1.2rem; border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift);
+  display: flex; align-items: center; gap: 0.6rem;
+  min-width: 260px;
+  border-left: 3px solid var(--rust);
+  animation: toast-in var(--dur-med) var(--ease);
+}
+.dae-toast.success { border-left-color: var(--success); }
+.dae-toast.danger { border-left-color: var(--danger); }
+.dae-toast.fade-out { animation: toast-out var(--dur-med) var(--ease) forwards; }
+
+/* Scroll-to-top button */
+#scroll-top-btn {
+  position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1500;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--ink); color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  border: none; box-shadow: var(--shadow-card);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: all var(--dur-med) var(--ease);
+}
+#scroll-top-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
+#scroll-top-btn:hover { background: var(--rust); }
+
+/* Loading skeleton shimmer for product grids */
+.skeleton {
+  background: linear-gradient(90deg, var(--wall-deep) 25%, #f1ece1 37%, var(--wall-deep) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 767.98px) {
+  .page-banner { padding: var(--space-lg) 0 var(--space-md); }
+}

@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CHECKOUT PAGE STYLES
+   ========================================================================== */
+
+.payment-option {
+  display: flex; align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.payment-option input { margin-right: 0.7rem; accent-color: var(--rust); }
+.payment-option:has(input:checked) { border-color: var(--rust); background: rgba(181,81,46,0.05); }
+
+.checkout-line-item { display: flex; gap: 0.8rem; align-items: center; }
+.checkout-line-item img { width: 56px; height: 70px; object-fit: cover; border-radius: var(--radius-sm); }
+.checkout-line-item .meta { flex: 1; }
+.checkout-line-item .meta small { display: block; color: var(--verdigris); font-family: var(--font-mono); font-size: 0.7rem; }

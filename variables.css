@@ -1,0 +1,54 @@
+/* ==========================================================================
+   DIGNITY ART EDGE — DESIGN TOKENS
+   Central place for every color, font, spacing and shadow value used on the
+   site. Change a value here and it ripples through every page.
+   Theme concept: a contemporary art gallery / auction-catalog identity —
+   warm "gallery wall" backgrounds, ink-black structure, fired-clay and
+   verdigris-patina accents, and monospace "placard" labels for product info.
+   ========================================================================== */
+
+:root {
+  /* ---------- Brand palette ---------- */
+  --ink: #16140f;              /* near-black, headers, nav, footer */
+  --ink-soft: #2b2723;         /* body copy on light backgrounds */
+  --wall: #ede7dd;             /* warm gallery-wall background */
+  --wall-deep: #e2dac9;        /* slightly deeper wall tone for sections */
+  --paper: #faf8f3;            /* card / surface background */
+  --rust: #b5512e;             /* primary accent — kiln-fired clay */
+  --rust-dark: #963f22;        /* hover state for rust */
+  --verdigris: #5c7a6e;        /* secondary accent — bronze patina */
+  --brass: #a9853b;            /* tertiary accent — premium / star ratings */
+  --line: #d8cfbd;             /* hairline border color on wall background */
+  --line-dark: #3a352c;        /* hairline border on ink background */
+
+  /* ---------- Status colors ---------- */
+  --success: #4f7a5b;
+  --danger: #b03a2e;
+  --warning: #b6862f;
+  --info: #3f6e8c;
+
+  /* ---------- Typography ---------- */
+  --font-display: "Fraunces", "Georgia", serif;       /* characterful display serif */
+  --font-body: "Work Sans", "Segoe UI", sans-serif;    /* clean reading face */
+  --font-mono: "Space Mono", "Courier New", monospace; /* catalog placard / label face */
+
+  /* ---------- Spacing scale ---------- */
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.6rem;
+  --space-xl: 4.2rem;
+  --space-2xl: 6.8rem;
+
+  /* ---------- Radii & shadows ---------- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --shadow-card: 0 1px 2px rgba(22, 20, 15, 0.06), 0 8px 24px rgba(22, 20, 15, 0.07);
+  --shadow-lift: 0 18px 40px rgba(22, 20, 15, 0.18);
+
+  /* ---------- Motion ---------- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 560ms;
+}

@@ -1,0 +1,28 @@
+/* ==========================================================================
+   SHOP PAGE STYLES
+   ========================================================================== */
+
+.filter-card h6 { color: var(--ink); }
+.filter-card .form-check { margin-bottom: 0.5rem; }
+.filter-card .form-check-input:checked { background-color: var(--rust); border-color: var(--rust); }
+.filter-card .form-check-label { font-size: 0.88rem; cursor: pointer; }
+.filter-card .form-range::-webkit-slider-thumb { background: var(--rust); }
+.filter-card .form-range::-moz-range-thumb { background: var(--rust); }
+
+#shop-rating-filters label { font-size: 0.88rem; cursor: pointer; }
+#shop-rating-filters .bi-star-fill, #shop-rating-filters .bi-star { color: var(--brass); }
+
+.pagination .page-link {
+  color: var(--ink);
+  border-color: var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin: 0 3px;
+  border-radius: var(--radius-sm) !important;
+}
+.pagination .page-item.active .page-link { background: var(--ink); border-color: var(--ink); }
+.pagination .page-link:hover { background: var(--wall-deep); }
+
+@media (min-width: 992px) {
+  .offcanvas-lg { position: sticky; top: 100px; }
+}

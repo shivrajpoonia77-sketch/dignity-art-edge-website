@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CART & WISHLIST PAGE STYLES
+   ========================================================================== */
+
+.cart-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--verdigris);
+  border-bottom-width: 1px;
+}
+.cart-table td { vertical-align: middle; }
+.font-mono { font-family: var(--font-mono); }
+
+.order-summary-card { position: sticky; top: 100px; }
+.order-summary-card span { font-size: 0.95rem; }
+
+#wishlist-grid .product-card { animation: fade-up 0.4s var(--ease) both; }
