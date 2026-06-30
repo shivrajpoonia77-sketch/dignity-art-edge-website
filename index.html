@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dignity Art Edge — Hand-Made Art, Sculpture &amp; Decor</title>
+  <meta name="description" content="A curated marketplace for hand-made paintings, sculpture, ceramics and textile art from independent studios.">
+
+  <!-- Bootstrap 5 & Icons (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Google Fonts: display serif + body sans + mono label face -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Project stylesheets (load order matters: tokens -> base -> animations -> page) -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+
+  <!-- Navbar mounts here (assets/js/components.js) -->
+  <div id="dae-navbar"></div>
+
+  <!-- ============================= HERO ============================= -->
+  <header class="home-hero">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6 order-2 order-lg-1">
+          <div class="section-eyebrow mb-3">Studio &amp; Gallery — Est. 2014</div>
+          <h1 class="hero-title mb-4">Art that carries<br>the maker's hand.</h1>
+          <p class="lead text-muted mb-4" style="max-width:480px;">Dignity Art Edge sources one-of-a-kind paintings, sculpture and craft directly from independent studios across India — every piece arrives with its own catalog placard telling you exactly who made it, and how.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="pages/shop.html" class="btn btn-dae btn-dae-primary">Explore the Collection <i class="bi bi-arrow-right"></i></a>
+            <a href="pages/about.html" class="btn btn-dae btn-dae-ghost">Our Story</a>
+          </div>
+          <div class="d-flex gap-4 mt-5 pt-2 hero-stats">
+            <div><strong>120+</strong><span>Independent Artisans</span></div>
+            <div><strong>4.8/5</strong><span>Average Rating</span></div>
+            <div><strong>9,400+</strong><span>Pieces Re-homed</span></div>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <div class="hero-art-frame anim-fade-up">
+            <img src="https://picsum.photos/seed/ochre-horizon/800/950" alt="Ochre Horizon painting hung in a gallery setting">
+            <div class="hero-placard">
+              <span class="label-mono">DAE-014 &middot; Featured Work</span>
+              <h4 class="mb-0">Ochre Horizon</h4>
+              <span class="label-mono">Oil on canvas, Jaipur</span>
+            </div>
+            <div class="hero-floating-card anim-float">
+              <i class="bi bi-shield-check text-rust fs-4"></i>
+              <div>
+                <strong>Certified Authentic</strong>
+                <span>Every piece hand-verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================= TRUST STRIP ============================= -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <i class="bi bi-truck"></i>
+          <h6>Free Shipping</h6>
+          <p>On orders over ₹15,000</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="bi bi-hand-index-thumb"></i>
+          <h6>100% Hand-Made</h6>
+          <p>Sourced from real studios</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="bi bi-arrow-repeat"></i>
+          <h6>7-Day Returns</h6>
+          <p>No questions asked</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="bi bi-lock"></i>
+          <h6>Secure Checkout</h6>
+          <p>Encrypted &amp; protected</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= CATEGORIES ============================= -->
+  <section class="container py-5">
+    <div class="text-center mb-5 reveal">
+      <div class="section-eyebrow justify-content-center mb-2">Browse by Medium</div>
+      <h2>Six Disciplines, One Standard</h2>
+    </div>
+    <div class="row g-4" id="home-category-grid"><!-- injected by home.js --></div>
+  </section>
+
+  <!-- ============================= FEATURED WORKS ============================= -->
+  <section class="py-5 bg-wall-deep">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3 reveal">
+        <div>
+          <div class="section-eyebrow mb-2">Curator's Picks</div>
+          <h2 class="mb-0">Featured Works</h2>
+        </div>
+        <a href="pages/shop.html" class="btn btn-dae btn-dae-outline">View All <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="row g-4" id="home-featured-grid"><!-- injected by home.js --></div>
+    </div>
+  </section>
+
+  <!-- ============================= ARTISAN STORY ============================= -->
+  <section class="container py-5 my-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <img src="https://picsum.photos/seed/artisan-studio/760/620" class="img-fluid rounded-1 shadow-sm" alt="Artisan shaping clay on a pottery wheel in a sunlit studio">
+      </div>
+      <div class="col-lg-6 reveal delay-2">
+        <div class="section-eyebrow mb-3">Why We Exist</div>
+        <h2 class="mb-4">Every placard tells a real story.</h2>
+        <p class="text-muted mb-4">We work directly with potters, painters, weavers and metalsmiths who rarely get a storefront of their own. Dignity Art Edge handles photography, logistics and customer care — they keep the credit, the story, and the majority of every sale.</p>
+        <div class="row g-3">
+          <div class="col-6">
+            <h3 class="display-font text-rust mb-0">82%</h3>
+            <p class="small text-muted mb-0">of sale price goes to the artisan</p>
+          </div>
+          <div class="col-6">
+            <h3 class="display-font text-rust mb-0">14</h3>
+            <p class="small text-muted mb-0">partner regions across India</p>
+          </div>
+        </div>
+        <a href="pages/about.html" class="btn btn-dae btn-dae-outline mt-4">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= NEW ARRIVALS ============================= -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3 reveal">
+        <div>
+          <div class="section-eyebrow mb-2">Just In</div>
+          <h2 class="mb-0">New Arrivals</h2>
+        </div>
+      </div>
+      <div class="row g-4" id="home-new-grid"><!-- injected by home.js --></div>
+    </div>
+  </section>
+
+  <!-- ============================= TESTIMONIALS ============================= -->
+  <section class="testimonial-section py-5">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="section-eyebrow justify-content-center mb-2">Collector Notes</div>
+        <h2 class="text-white">What Collectors Say</h2>
+      </div>
+      <div id="testimonialCarousel" class="carousel slide reveal" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card mx-auto">
+              <div class="rating mb-3">★★★★★</div>
+              <p>"The Bronze Wanderer sculpture arrived more detailed than the photos showed, and the placard card telling the sculptor's story made it feel like a real gift."</p>
+              <strong>Ritika M.</strong><span>Bengaluru</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <div class="rating mb-3">★★★★★</div>
+              <p>"Ordering art online always feels risky. Dignity Art Edge's catalog numbers and condition notes made me trust the purchase completely."</p>
+              <strong>Arvind S.</strong><span>Pune</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <div class="rating mb-3">★★★★★</div>
+              <p>"Fast shipping, careful packaging, and the indigo tapestry is now the centerpiece of our living room."</p>
+              <strong>Naina K.</strong><span>Delhi NCR</span>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= NEWSLETTER BAND ============================= -->
+  <section class="newsletter-band">
+    <div class="container text-center reveal">
+      <h2 class="text-white mb-2">Get first access to new drops</h2>
+      <p class="mb-4">One email a fortnight. No spam, just new catalog entries.</p>
+      <form class="d-flex justify-content-center gap-2 flex-wrap" onsubmit="event.preventDefault(); daeToast('Thanks — you are on the list.', 'success', 'bi-envelope-check'); this.reset();">
+        <input type="email" class="form-control" style="max-width:320px;" placeholder="you@email.com" required>
+        <button class="btn btn-dae btn-dae-rust" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer mounts here -->
+  <div id="dae-footer"></div>
+
+  <!-- Bootstrap bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Page identity globals, must be set before components.js runs -->
+  <script>
+    window.DAE_BASE = "./";
+    window.DAE_PAGE = "home";
+  </script>
+
+  <!-- Project scripts (order matters: utils/data first, page script last) -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/product-card.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
